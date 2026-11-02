@@ -15,3 +15,15 @@ const twMerge = extendTailwindMerge({
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+// Datum aus ISO (JJJJ-MM-TT) als TT.MM.JJJJ, ohne Zeitzonen-Verschiebung
+export function datum(iso: string) {
+  const [j, m, t] = iso.split("-");
+  return `${t}.${m}.${j}`;
+}
+
+// Kurzform TT.MM. für Zeiträume
+export function datumKurz(iso: string) {
+  const [, m, t] = iso.split("-");
+  return `${t}.${m}.`;
+}

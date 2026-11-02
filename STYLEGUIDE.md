@@ -121,6 +121,10 @@ Fließtext höchstens 65–72 Zeichen breit. Überschriften mit `text-wrap: bala
 | `Hinweis` | Info, Warnung, Fehler im Inhalt: Titel sagt was, Text sagt, was zu tun ist |
 | `Field` + `Input` / `Textarea` / `Select` | Beschriftung **über** dem Feld, Hinweis darunter, Fehler ersetzt den Hinweis; nie nur Platzhalter |
 | `Segmented` | Umschalter für andere Darstellung oder kurze Auswahl, höchstens 5 Segmente |
+| `Dialog` | Formular (520 px) oder Rückfrage (420 px); Rechner in der Mitte, Handy als Fenster von unten. Natives `<dialog>`: `Esc` schließt, Fokus bleibt drin, sichtbarer X-Knopf; Klick auf den Hintergrund schließt |
+| `Toaster` + `zeigeMeldung(text, rückgängig?)` | Bestätigung nach einer Aktion („Zurückgegeben“), optional mit „Rückgängig“ statt Rückfrage. Dunkle Fläche (`tile`), unten (Handy über der Leiste), 6 s, per `aria-live` vorgelesen. `Toaster` steht einmal im Layout |
+| `KategoriePunkt` | Kategorie als Punkt in `cat-1` … `cat-4` vor dem Namen, nie als Fläche |
+| `Werkzeugleiste` | Suche und Umschalter über einer Liste; bleibt am Handy unter der Kopfzeile stehen (UX-Regel 11) |
 
 Jeder Baustein hat die Zustände Ruhe, Hover, Fokus (Ring immer sichtbar), Gedrückt und Gesperrt. Gesperrt sparsam: lieber klickbar lassen und erklären, was fehlt.
 

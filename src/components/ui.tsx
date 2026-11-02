@@ -7,6 +7,29 @@ import { cn } from "@/lib/utils";
 // Bausteine mit Zustand liegen in eigenen Dateien ("use client") und werden hier mit ausgegeben.
 export { PageHeader } from "./page-header";
 export { Segmented } from "./segmented";
+export { Dialog } from "./dialog";
+export { Toaster, zeigeMeldung } from "./toast";
+
+// Kategorie: Punkt in cat-1 … cat-4 vor dem Namen, nie als Fläche.
+const KATEGORIE = { 1: "bg-cat-1", 2: "bg-cat-2", 3: "bg-cat-3", 4: "bg-cat-4" } as const;
+
+export function KategoriePunkt({ farbe, children }: { farbe: keyof typeof KATEGORIE; children: React.ReactNode }) {
+  return (
+    <span className="inline-flex items-center gap-1.5 text-small text-text-2">
+      <span className={cn("size-2 shrink-0 rounded-full", KATEGORIE[farbe])} aria-hidden />
+      {children}
+    </span>
+  );
+}
+
+// Werkzeugleiste mit Umschaltern oder Suche: am Handy bleibt sie unter der Kopfzeile stehen (UX-Regel 11).
+export function Werkzeugleiste({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="z-30 flex flex-wrap items-end gap-3 max-sm:sticky max-sm:top-(--mobile-bar-h) max-sm:-mx-4 max-sm:-my-2 max-sm:bg-bg/90 max-sm:px-4 max-sm:py-2 max-sm:backdrop-blur-md">
+      {children}
+    </div>
+  );
+}
 
 // Knöpfe: genau ein „primary“ je Ansicht. Icon links vom Text.
 const KNOPF = {
